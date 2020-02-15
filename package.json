@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "chronosophia",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Philosopher organization over time and relations",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Kloder Art <info@kloder.com>",
   "dependencies": {
     "@rhysforyou/gatsby-plugin-react-helmet-async": "^0.1.3",
     "gatsby": "^2.19.17",
@@ -44,13 +44,13 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/kloderart/chronosophia.git"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/kloderart/chronosophia"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/kloderart/chronosophia/issues"
   }
 }
