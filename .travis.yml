@@ -1,8 +1,9 @@
 language: node_js
 before_script:
   - npm install -g gatsby-cli
+  - rm package-lock.json
 node_js:
-  - '10.0'
+  - '12.14'
 
 deploy:
   provider: script
