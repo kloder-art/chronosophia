@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: '/chronosophia',
   siteMetadata: {
     title: 'Chronosophia',
-    description: 'Philosopher organization about time and relations',
+    description: 'Philosopher organization over time and relations',
     author: `@kloder`,
   },
   mapping: {
@@ -35,6 +35,6 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
   ],
 };
