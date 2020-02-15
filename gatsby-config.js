@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/chronosophia',
   siteMetadata: {
     title: 'Chronosophia',
     description: 'Philosopher organization about time and relations',

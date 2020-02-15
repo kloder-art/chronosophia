@@ -1,0 +1,15 @@
+language: node_js
+before_script:
+  - npm install -g gatsby
+node_js:
+  - '10.0'
+
+deploy:
+  provider: script
+  script: npm run deploy
+  skip_cleanup: true
+  on:
+    branch: master
+
+dist: trusty
+sudo: false
