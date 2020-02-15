@@ -6,7 +6,7 @@ node_js:
 
 deploy:
   provider: script
-  script: npm run deploy
+  script: npm install && npm run deploy
   cleanup: true
   on:
     branch: master
