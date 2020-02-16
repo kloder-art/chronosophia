@@ -1,14 +1,14 @@
 import React, { useRef, useEffect } from 'react';
-import { DataSet, Timeline as TL } from 'vis-timeline/standalone';
+import { DataSet, Timeline } from 'vis-timeline/standalone';
 import styled from 'styled-components';
 import moment from 'moment';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import 'vis-timeline/styles/vis-timeline-graph2d.css';
 
 const StyledTimeline = styled.div`
   width: 100%;
   height: 100%;
-
   .person {
     display: flex;
     img {
@@ -17,48 +17,50 @@ const StyledTimeline = styled.div`
   }
 `;
 
-const parseItems = items =>
-  items.map((x, idx) => ({
-    id: idx,
-    content: `<div class="person">
-      <img src="${x.node.frontmatter.image.childImageSharp.original.src}" height="50"/>
-<h4>${x.node.frontmatter.name}</h4>
-    </person>`,
-    start: moment().year(x.node.frontmatter.birth.year),
-    end: moment().year(x.node.frontmatter.death.year),
-  }));
+const formatDate = year => `${Math.abs(year)} b. C.`;
 
-const Timeline = ({ items }) => {
+const parseItems = items =>
+  new DataSet(
+    items.map((x, idx) => ({
+      id: idx,
+      content: `<div class="person">
+      <img src="${x.node.image.childImageSharp.original.src}" height="50"/>
+<h4>${x.node.name}</h4>
+    </person>`,
+      start: moment().year(x.node.birth.year),
+      end: moment().year(x.node.death.year),
+    }))
+  );
+
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allPhilosophersYaml(sort: { fields: birth___year, order: DESC }) {
+        edges {
+          node {
+            name
+            image {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
+            id
+            birth {
+              year
+            }
+            death {
+              year
+            }
+          }
+        }
+      }
+    }
+  `);
   const ref = useRef();
   useEffect(() => {
-    const timeLine = new TL(ref.current, parseItems(items), {});
+    new Timeline(ref.current, parseItems(data.allPhilosophersYaml.edges), {});
   }, []);
   return <StyledTimeline ref={ref} />;
 };
-
-export default Timeline;
-
-// {data.allMarkdownRemark.edges.map((x, idx) => (
-//   <div key={idx}>
-//     <img src={x.node.frontmatter.image.childImageSharp.original.src} />
-//     <h2>{x.node.frontmatter.name}</h2>
-//     <h5>
-//       {formatDate(x.node.frontmatter.birth.year)} -{' '}
-//       {formatDate(x.node.frontmatter.death.year)}
-//     </h5>
-//     <p>
-//       Maestro:{' '}
-//       {x.node.frontmatter.parent
-//         ? x.node.frontmatter.parent.frontmatter.name
-//         : 'indefinido'}
-//     </p>
-//     <h4>Alumnos:</h4>
-//     <ul>
-//       {x.node.frontmatter.children
-//         ? x.node.frontmatter.children.map((y, idx2) => (
-//             <li key={idx2}>{y ? y.frontmatter.name : 'indefinido'}</li>
-//           ))
-//         : 'indefinido'}
-//     </ul>
-//   </div>
-// ))}

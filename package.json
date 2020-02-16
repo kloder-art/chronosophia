@@ -17,6 +17,7 @@
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-remark": "^2.6.51",
     "gatsby-transformer-sharp": "^2.3.14",
+    "gatsby-transformer-yaml": "^2.2.25",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",

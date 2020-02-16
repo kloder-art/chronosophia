@@ -15,6 +15,7 @@ module.exports = {
     '@rhysforyou/gatsby-plugin-react-helmet-async',
     'gatsby-transformer-sharp',
     'gatsby-transformer-remark',
+    'gatsby-transformer-yaml',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',

@@ -1,4 +1,3 @@
----
 id: socrates
 name: Socrates
 birth:
@@ -23,4 +22,3 @@ students:
   - simmias
   - cebes
   - apolodoro
----
