@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: 'Chronosophia',
     description: 'Philosopher organization over time and relations',
-    author: `@kloder`,
+    author: '@kloder',
   },
   mapping: {
     'MarkdownRemark.frontmatter.teachers': 'MarkdownRemark.frontmatter.id',
@@ -24,13 +24,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Chronosophia',
         short_name: 'Chronosophia',
         start_url: '/',
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: '#663399',
+        theme_color: '#663399',
         display: 'standalone',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
