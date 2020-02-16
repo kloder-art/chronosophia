@@ -18,4 +18,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
           FOLDER: public
-          BUILD_SCRIPT: npm && npm run build
+          BUILD_SCRIPT: npm ci && npm run build
