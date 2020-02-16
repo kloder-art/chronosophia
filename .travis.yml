@@ -1,8 +1,12 @@
 language: node_js
 before_script:
-  - npm install -g gatsby-cli
+  - npm install -g gatsby-cli codecov
 node_js:
   - '12.14'
+
+script:
+  - npm test
+  - codecov
 
 deploy:
   provider: script
