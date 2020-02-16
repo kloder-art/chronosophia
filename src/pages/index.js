@@ -4,9 +4,11 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Timeline from '../components/Timeline';
 
-export default () => (
-  <Layout>
-    <SEO title="Home" />
-    <Timeline />
-  </Layout>
-);
+export default function IndexPage() {
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Timeline />
+    </Layout>
+  );
+}
