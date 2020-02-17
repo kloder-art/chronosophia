@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  cicd:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -16,11 +16,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-
-    - name: Build
-      run: |
-        npm ci
-        npm run build
+    
+    - name: Install
+      run: npm ci
 
     - name: Test
       if: success()
@@ -28,10 +26,13 @@ jobs:
         npm run test
         npm run linter
 
+    - name: Build
+      if: success()
+      run: npm run build
+
     - name: Deploy
       if: success()
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: public
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACCESS_TOKEN }}
+        publish_dir: ./public
