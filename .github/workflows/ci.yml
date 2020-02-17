@@ -29,9 +29,9 @@ jobs:
         npm run linter
 
     - name: Deploy
-      if: sucess()
+      if: success()
       uses: JamesIves/github-pages-deploy-action@master
       env:
-        ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: public
