@@ -55,7 +55,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "lint": "eslint src/components/** src/pages/**"
+    "linter": "eslint src/components/** src/pages/**"
   },
   "repository": {
     "type": "git",
