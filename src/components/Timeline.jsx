@@ -24,53 +24,62 @@ const formatDate = year => `${Math.abs(year)} b. C.`;
 
 const parseItems = items =>
   new DataSet(
-    items.map((x, idx) => ({
+    items.map(({ node: { frontmatter: item } }, idx) => ({
       id: idx,
       content: `<div class="person">
-  <img src="${x.node.image.childImageSharp.original.src}" height="50"/>
+  ${
+    item.image
+      ? `<img src="${item.image.childImageSharp.fixed.src}" height="50"/>`
+      : ''
+  }
   <p>
-    <strong>${x.node.name}</strong><br />
+    <strong>${item.name}</strong><br />
     <small>
-      ${formatDate(x.node.birth.year)} - 
-      ${formatDate(x.node.death.year)}
-      (${x.node.death.year - x.node.birth.year})
+      ${formatDate(item.birth.year)} - 
+      ${formatDate(item.death.year)}
+      (${item.death.year - item.birth.year})
     </small>
   </p>
 </person>`,
-      start: moment().year(x.node.birth.year),
-      end: moment().year(x.node.death.year),
+      start: moment().year(item.birth.year),
+      end: moment().year(item.death.year),
     }))
   );
 
 export default function Timeline() {
   const data = useStaticQuery(graphql`
     query {
-      allPhilosophersYaml(sort: { fields: birth___year, order: DESC }) {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___birth___year, order: DESC }
+      ) {
         edges {
           node {
-            name
-            image {
-              childImageSharp {
-                original {
-                  src
+            frontmatter {
+              name
+              image {
+                childImageSharp {
+                  fixed(width: 50, height: 50, quality: 90, fit: CONTAIN) {
+                    src
+                  }
                 }
               }
-            }
-            id
-            birth {
-              year
-            }
-            death {
-              year
+              id
+              birth {
+                year
+              }
+              death {
+                year
+              }
             }
           }
         }
       }
     }
   `);
+  console.log(data);
   const ref = useRef();
   useEffect(() => {
-    new TL(ref.current, parseItems(data.allPhilosophersYaml.edges), {});
+    new TL(ref.current, parseItems(data.allMarkdownRemark.edges), {});
   }, []);
   return <StyledTimeline ref={ref} />;
 }
