@@ -1,3 +1,4 @@
+---
 id: anaximandro
 name: Anaximandro
 birth:
@@ -7,7 +8,7 @@ death:
   year: -545
   place: Mileto, Jonia
 wikipedia: https://es.wikipedia.org/wiki/Anaximandro
-image: images/anaximandro.jpg
+image: portrait.jpg
 teachers:
   - tales
 students:
@@ -15,3 +16,4 @@ students:
   - anaximenes
 references:
   - https://canal.uned.es/video/5a6f956db1111fc5248b463f
+---

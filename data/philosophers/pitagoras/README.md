@@ -1,3 +1,4 @@
+---
 id: pitagoras
 name: Pitágoras
 birth:
@@ -7,9 +8,10 @@ death:
   year: -475
   place: Metaponto
 wikipedia: https://es.wikipedia.org/wiki/Pitágoras
-image: images/pitagoras.jpg
+image: portrait.jpg
 teachers:
   - anaximandro
 students:
   - filolao
   - empedocles
+---

@@ -1,3 +1,4 @@
+---
 id: aristoteles
 name: Aristóteles
 birth:
@@ -7,7 +8,7 @@ death:
   year: -322
   place: Calcis, Reino de Macedonia
 wikipedia: https://es.wikipedia.org/wiki/Aristóteles
-image: images/aristoteles.jpg
+image: portrait.jpg
 teachers:
   - platon
 students:
@@ -20,3 +21,4 @@ students:
   - clearco
   - fanias
   - neleo
+---

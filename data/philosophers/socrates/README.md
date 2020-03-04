@@ -1,3 +1,4 @@
+---
 id: socrates
 name: Socrates
 birth:
@@ -7,7 +8,7 @@ death:
   year: -399
   place: Atenas, Antigua Grecia
 wikipedia: https://es.wikipedia.org/wiki/Sócrates
-image: images/socrates.jpg
+image: portrait.jpg
 teachers:
   - none
 students:
@@ -22,3 +23,4 @@ students:
   - simmias
   - cebes
   - apolodoro
+---
