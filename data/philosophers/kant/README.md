@@ -9,5 +9,7 @@ death:
   place: Königsberg, Prusia
 wikipedia: https://es.wikipedia.org/wiki/Immanuel_Kant
 image: portrait.jpg
+subjects:
+  - ethic
 ---
 

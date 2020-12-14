@@ -21,4 +21,7 @@ students:
   - clearco
   - fanias
   - neleo
+subjects:
+  - ethic
+  - physics
 ---

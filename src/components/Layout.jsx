@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
 import Header from './Header';
 import Footer from './Footer';
+import { FiltersContextProvider } from '../context/filters-context';
 
 import '../styles/layout.scss';
-import styled from 'styled-components';
 
 const StyledLayout = styled.div`
   display: flex;
@@ -26,11 +27,13 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <StyledLayout>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
-      <Footer siteTitle={data.site.siteMetadata.title} />
-    </StyledLayout>
+    <FiltersContextProvider>
+      <StyledLayout>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <main>{children}</main>
+        <Footer siteTitle={data.site.siteMetadata.title} />
+      </StyledLayout>
+    </FiltersContextProvider>
   );
 };
 

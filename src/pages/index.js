@@ -38,6 +38,7 @@ export const query = graphql`
               id
               title
               year
+              subjects
             }
           }
         }
@@ -72,6 +73,7 @@ export const query = graphql`
               death {
                 year
               }
+              subjects
             }
           }
         }
