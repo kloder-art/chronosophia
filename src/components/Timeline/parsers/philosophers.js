@@ -1,25 +1,26 @@
 import moment from 'moment';
 
-const formatDate = (year) => `${Math.abs(year)} b. C.`;
+import { formatYearRange, getTimelineRange } from '../../../utils/dates';
 
-export const parse = (items) =>
-  items.map(({ node: { childMarkdownRemark: { frontmatter: x } } }, idx) => ({
-    id: `philosopher${idx}`,
-    content: `<div class="person">
-  ${
-    x.image
-      ? `<img src="${x.image.childImageSharp.fixed.src}" height="50"/>`
-      : ''
-  }
+const template = ({ image, name, yearRange }) => `
+<div class="person">
+  ${image ? `<img src="${image}" height="50"/>` : ''}
   <p>
-    <strong>${x.name}</strong><br />
+    <strong>${name}</strong><br />
     <small>
-      ${formatDate(x.birth.year)} - 
-      ${formatDate(x.death.year)}
-      (${x.death.year - x.birth.year})
+      ${yearRange}
     </small>
   </p>
-</person>`,
-    start: moment().year(x.birth.year),
-    end: moment().year(x.death.year),
+</div>
+`;
+
+export const parse = (items) =>
+  items.map(({ node: { childMarkdownRemark: { frontmatter: x } } }) => ({
+    id: `philosopher-${x.id}`,
+    content: template({
+      image: x.image ? x.image.childImageSharp.fixed.src : null,
+      name: x.name,
+      yearRange: formatYearRange(x.birth.year, x.death.year),
+    }),
+    ...getTimelineRange(x.birth.year, x.death.year),
   }));
