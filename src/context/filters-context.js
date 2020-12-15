@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import PropTypes from 'prop-types';
 
 const SUBJECTS = 0;
 
@@ -40,4 +41,8 @@ export const FiltersContextProvider = ({ children }) => {
       {children}
     </FiltersContext.Provider>
   );
+};
+
+FiltersContextProvider.propTypes = {
+  children: PropTypes.node,
 };

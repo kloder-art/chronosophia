@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -19,7 +18,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <StyledHeader>
     <Container>
       <Filters />

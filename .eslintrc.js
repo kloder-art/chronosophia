@@ -1,29 +1,22 @@
 module.exports = {
-  root: true,
   env: {
-    jest: true,
-  },
-  globals: {
-    page: true,
     browser: true,
-    context: true,
+    es2021: true,
+    'jest/globals': true,
   },
-  extends: ['plugin:jest/recommended', 'plugin:react/recommended'],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['react', 'jest'],
+  rules: {},
   settings: {
     react: {
-      version: '16.9',
+      version: 'detect',
     },
-  },
-  rules: {
-    quotes: ['error', 'single'],
-    semi: 'error',
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error',
-    'react/prop-types': [2],
-  },
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module',
   },
 };

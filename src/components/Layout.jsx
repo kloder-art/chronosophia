@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
   return (
     <FiltersContextProvider>
       <StyledLayout>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header />
         <main>{children}</main>
         <Footer siteTitle={data.site.siteMetadata.title} />
       </StyledLayout>

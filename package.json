@@ -49,8 +49,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest",
-    "linter": "eslint src/components/** src/pages/**"
+    "test": "jest && npm run linter",
+    "linter": "eslint src/**/*.js src/**/*.jsx"
   },
   "repository": {
     "type": "git",
