@@ -12,4 +12,3 @@ image: portrait.jpg
 subjects:
   - ethic
 ---
-

@@ -3,5 +3,5 @@ import { parse as works } from './works';
 
 export default {
   philosophers,
-  works
+  works,
 };
