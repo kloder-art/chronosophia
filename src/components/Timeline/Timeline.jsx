@@ -6,8 +6,10 @@ import moment from 'moment';
 
 import { FiltersContext } from '../../context/filters-context';
 import parsers from './parsers';
+import periods from './periods';
 
 import 'vis-timeline/styles/vis-timeline-graph2d.css';
+import './Timeline.scss';
 
 const StyledTimeline = styled.div`
   width: 100%;
@@ -32,6 +34,7 @@ export const Timeline = ({ philosophers, works }) => {
       ref.current,
       new DataSet(
         [].concat(
+          periods,
           parsers.philosophers(filter(philosophers)),
           parsers.works(filter(works))
         )
